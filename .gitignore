@@ -1,0 +1,6 @@
+*.googleusercontent.com.json
+.vs
+lib
+bin
+obj
+security

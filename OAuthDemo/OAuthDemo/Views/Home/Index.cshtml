@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "OAuth 2.0 Authentication Demo";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+            <div class="mb-4">
+                <i class="fas fa-user-shield text-primary" style="font-size: 4rem;"></i>
+            </div>
+
+            <h1 class="display-5 fw-bold mb-4">Welcome to the Authentication Demo</h1>
+
+            <p class="lead mb-4">
+                This project demonstrates secure integration with Google using OAuth 2.0.
+                Try the authentication flow with a single click!
+            </p>
+
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5">
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-google btn-lg px-4 gap-3">
+                        <i class="fab fa-google me-2"></i> Sign in with Google
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-success mt-4" role="alert">
+                    <h4 class="alert-heading"><i class="fas fa-check-circle me-2"></i>Authentication Successful!</h4>
+                    <p>
+                        You are authenticated as <strong>@User.Identity.Name</strong>.
+                        You can now explore protected resources or test logout.
+                    </p>
+                    <hr>
+                    <div class="d-flex justify-content-center">
+                        <a asp-controller="Account" asp-action="Logout" class="btn btn-outline-danger">
+                            <i class="fas fa-sign-out-alt me-1"></i> Sign Out
+                        </a>
+                    </div>
+                </div>
+            }
+
+            <div class="row mt-5 g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="mb-3 text-primary">
+                                <i class="fas fa-shield-alt fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Security</h5>
+                            <p class="card-text">
+                                Secure implementation of OAuth 2.0 protocol using industry best practices.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="mb-3 text-primary">
+                                <i class="fas fa-user-check fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">User Experience</h5>
+                            <p class="card-text">
+                                Simplified authentication flow with automatic redirection and error handling.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="mb-3 text-primary">
+                                <i class="fas fa-code fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Technology</h5>
+                            <p class="card-text">
+                                Developed with ASP.NET Core 7.0, Bootstrap 5 and Font Awesome for icons.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
